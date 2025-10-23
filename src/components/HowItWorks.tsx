@@ -1,7 +1,6 @@
 import Image, { StaticImageData } from "next/image";
-import { howItWorksImage1 as image1, howItWorksImage2 as image2 } from "@/assets";
+import { howItWorksImage1 as image1, howItWorksImage2 as image2, howItWorksImage3 as image3 } from "@/assets";
 import Image1 from "@/assets/images/Visit.svg";
-import Image3 from "@/assets/images/Image5.svg";
 import {
   AnimatedArrow,
   AnimatedArrowProps,
@@ -10,6 +9,7 @@ import { H1, H2, H3 } from "./ui/Typography";
 import { LinkButton } from "./ui/Button";
 import { cn } from "@/lib/utils";
 import { AnimatedLineArt, AnimatedLineArtProps } from "./animations/background/LineArt";
+import { useState } from "react";
 
 type stepType = {
   id: number;
@@ -47,8 +47,8 @@ const steps: stepType[] = [
   {
     id: 3,
     title: "We Print & Mail It",
-    subTitle: "Grandma’s fridge-worthy postcard, incoming!",
-    image: Image3,
+    subTitle: "Grandma's fridge-worthy postcard, incoming!",
+    image: image3,
     animatedLineArtProps: {
       variant: "burjKhalifa",
       className: "absolute left-0 -translate-x-[40%] max-h-full"
@@ -90,6 +90,17 @@ const Step = ({
   animatedLineArtProps,
   nextArrowProps,
 }: stepType) => {
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+  };
+
+  const handleImageError = () => {
+    setImageLoading(false);
+    setImageError(true);
+  };
 
   return (
     <div className="relative flex flex-col items-center">
@@ -108,13 +119,36 @@ const Step = ({
           </div>
         </div>
 
-        <div className="flex flex-1 mt-10 w-full justify-center md:w-auto">
-          <Image
-            className={`drop-shadow-black/50  w-[40rem] ${id == 3 ? "" : "-rotate-4"} rounded-md drop-shadow-2xl`}
-            src={image}
-            alt="step image"
-            loading="lazy"
-          />
+        <div className="flex flex-1 mt-10 w-full justify-center md:w-auto relative">
+          {imageLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-md animate-pulse">
+              <div className="text-gray-400">Loading...</div>
+            </div>
+          )}
+          {imageError ? (
+            <div className="flex items-center justify-center w-[40rem] h-[30rem] bg-gray-100 rounded-md border-2 border-dashed border-gray-300">
+              <div className="text-center text-gray-500">
+                <div className="text-4xl mb-2">📷</div>
+                <div>Image failed to load</div>
+              </div>
+            </div>
+          ) : (
+            <Image
+              className={`drop-shadow-black/50 w-[40rem] ${id == 3 ? "" : "-rotate-4"} rounded-md drop-shadow-2xl transition-opacity duration-300 ${
+                imageLoading ? "opacity-0" : "opacity-100"
+              }`}
+              src={image}
+              alt={`Step ${id} - ${title}`}
+              loading={id === 1 ? "eager" : "lazy"}
+              priority={id === 1}
+              quality={90}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40rem"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+            />
+          )}
         </div>
       </div>
       <div className={`max-w-[70rem] w-full flex ${id === 1 ? "justify-end" : id === 2 ? "justify-start" : "justify-center"}`}>
