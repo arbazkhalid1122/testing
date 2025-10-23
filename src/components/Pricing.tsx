@@ -36,9 +36,9 @@ export const Pricing = () => {
           <Image className="" src={imageCollage} alt="Image Collage" />
           <div className="flex flex-col gap-5 mt-20 sm:mt-0">
             <H1>Why Print Your Trip?</H1>
-            <p className="font-medium text-md">
+            <H2 className="font-medium text-md">
               Because your travel stories deserve more than a text message.
-            </p>
+            </H2>
             <ul className="font-quicksand text-md flex flex-col gap-5">
               <li className="flex gap-3">
                 <CircleCheckThemed />
@@ -101,7 +101,7 @@ const Testimonials = () => {
   return (
     <div className="flex relative flex-col items-center gap-10 py-10">
       <div className="flex flex-col text-center">
-        <H2
+        <H1
           className="
     text-center
     text-3xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
@@ -110,8 +110,8 @@ const Testimonials = () => {
   "
         >
           Real Reviews from Real People – Not Just Our Moms
-        </H2>
-        <p className="text-base">Postcards that actually make people smile.</p>
+        </H1>
+        <H3 className="text-base">Postcards that actually make people smile.</H3>
       </div>
       <div className="flex w-full max-w-[80rem] flex-col flex-wrap items-center justify-around gap-3 md:flex-row">
         {testimonialProps.map((testimonialProp, idx) => (

@@ -12,13 +12,13 @@ export default function Hero() {
           <H1 className="text-[35px] md:text-[56px] leading-none">
             Turn Your Travel Pics into Postcards – Mailed for You!
           </H1>
-          <p className="font-[600] text-lg">
-            No stamps. No post office. No hassle.
-          </p>
-          <p className="font-[500] text-lg">
+          <H2 className="font-[600]">
+            No stamps. No post office. No hassle. <br />
+          </H2>
+          <H2 className="font-[500]">
             Upload a photo, add a message & the address, and we&apos;ll do the
             rest.
-          </p>
+          </H2>
           <LinkButton
             href={process.env.NEXT_PUBLIC_APP_URL || ""}
             className="pt-[18px] pb-[16px] px-[26px] text-[1.375rem] font-medium h-[3.375rem] w-[14.5rem]"

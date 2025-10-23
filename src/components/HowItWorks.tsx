@@ -66,9 +66,9 @@ export const HowItWorks = () => {
       />
       <div className="text-center py-10">
         <H1>How It Works</H1>
-        <p className="mt-4 text-lg">
+        <H2 className="mt-4">
           Because core memories shouldn&lsquo;t live on your phone forever.
-        </p>
+        </H2>
       </div>
       <div className="flex flex-col w-full">
         {steps.map((step, idx) => (
@@ -114,9 +114,9 @@ const Step = ({
       >
         <div className="flex flex-1 w-full justify-center">
           <div className="flex flex-col items-start justify-center gap-3 text-start w-fit">
-            <h3 className="text-sm font-medium text-muted-foreground">Step {id}</h3>
-            <H2>{title}</H2>
-            <p className="text-lg">{subTitle}</p>
+            <H2>Step {id}</H2>
+            <H1>{title}</H1>
+            <H3>{subTitle}</H3>
           </div>
         </div>
 
