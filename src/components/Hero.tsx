@@ -6,7 +6,7 @@ import { AnimatedLineArt } from "./animations/background/LineArt";
 
 export default function Hero() {
   return (
-    <section className="bg-accent relative flex min-h-screen w-full flex-col items-center gap-2 overflow-x-hidden rounded-b-[3rem] p-5 pt-30">
+    <section className="hero-section bg-accent relative flex min-h-screen w-full flex-col items-center gap-2 overflow-x-hidden rounded-b-[3rem] p-5 pt-30">
       <div className="flex h-full max-w-[80rem] grid-cols-2 flex-col items-center justify-center gap-10 md:grid">
         <div className="flex flex-col gap-5">
           <H1 className="text-[35px] md:text-[56px] leading-none">
@@ -30,14 +30,14 @@ export default function Hero() {
 
         <Image
           src={image}
-          className="relative z-10 scale-115"
+          className="relative z-10 scale-115 hero-image"
           alt="Example of a personalized postcard created from travel photos"
           width={600}
           height={400}
           priority
           fetchPriority="high"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          quality={85}
+          quality={90}
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
         />

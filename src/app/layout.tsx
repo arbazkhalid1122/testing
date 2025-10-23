@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { leagueSpartan, quicksand, premiumUltra84 } from "./fonts";
 import { PerformanceMonitor } from "@/components/PerformanceMonitor";
+import { CriticalCSS } from "@/components/CriticalCSS";
 
 export const metadata: Metadata = {
   title: "pyt | Real-Time Postcards",
@@ -18,7 +19,8 @@ export const metadata: Metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({
@@ -35,6 +37,9 @@ export default function RootLayout({
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="//js.stripe.com" />
         <link rel="dns-prefetch" href="//api.stripe.com" />
+        {/* Preload critical resources for better LCP */}
+        <link rel="preload" href="/fonts/PremiumUltra84.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/assets/images/Image1.png" as="image" />
         {/* Service Worker registration */}
         <script
           dangerouslySetInnerHTML={{
@@ -57,6 +62,7 @@ export default function RootLayout({
       <body
         className={`${leagueSpartan.variable} ${quicksand.variable} ${premiumUltra84.variable} antialiased`}
       >
+        <CriticalCSS />
         <PerformanceMonitor />
         {children}
       </body>

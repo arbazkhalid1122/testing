@@ -19,9 +19,9 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   // Enable compression
   compress: true,
-  // Enhanced image optimization
+  // Enhanced image optimization for better LCP
   images: {
-    formats: ['image/webp', 'image/avif'],
+    formats: ['image/avif', 'image/webp'], // AVIF first for better compression
     minimumCacheTTL: 31536000, // 1 year cache
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
