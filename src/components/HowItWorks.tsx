@@ -1,3 +1,4 @@
+'use client'
 import Image, { StaticImageData } from "next/image";
 import { howItWorksImage1 as image1, howItWorksImage2 as image2, howItWorksImage3 as image3 } from "@/assets";
 import Image1 from "@/assets/images/Visit.svg";
