@@ -93,6 +93,31 @@
   }
   body {
     @apply text-foreground font-league-spartan bg-background;
+    /* Performance optimizations */
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Optimize image rendering */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Reduce layout shifts */
+  .hero-image {
+    aspect-ratio: 3/2;
+  }
+  
+  /* Optimize animations for performance */
+  * {
+    will-change: auto;
+  }
+  
+  /* Reduce paint complexity */
+  .gradient-bg {
+    background: linear-gradient(135deg, var(--background) 0%, var(--accent) 100%);
   }
 }
 

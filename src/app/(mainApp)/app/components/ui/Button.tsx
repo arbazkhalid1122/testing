@@ -1,7 +1,6 @@
 'use client';
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Button, ButtonProps } from "@mui/material";
+import { createTheme, ThemeProvider, Button, ButtonProps } from "@/lib/mui-optimized";
 
 const theme = createTheme({
   typography: {

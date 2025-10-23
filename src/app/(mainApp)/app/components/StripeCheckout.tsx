@@ -6,7 +6,7 @@ import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 
 import { PaymentElement } from "@stripe/react-stripe-js";
-import { Box, Divider, Grid2 as Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid2 as Grid, Typography } from "@/lib/mui-optimized";
 
 import PoweredByStripePng from "../assets/images/powered-by-stripe.png";
 import { UIButton } from "./ui/Button";

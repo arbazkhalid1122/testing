@@ -8,7 +8,7 @@ import {
   TextField,
   Card,
   CardContent,
-} from "@mui/material";
+} from "@/lib/mui-optimized";
 import { forwardRef, useEffect, useMemo, useState } from "react";
 import { StripeCheckout } from "./StripeCheckout";
 import { UIButton } from "./ui/Button";

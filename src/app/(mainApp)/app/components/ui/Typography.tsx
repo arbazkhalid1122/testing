@@ -1,7 +1,6 @@
 'use client';
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Typography, TypographyProps } from "@mui/material";
+import { createTheme, ThemeProvider, Typography, TypographyProps } from "@/lib/mui-optimized";
 
 const theme = createTheme({
   typography: {

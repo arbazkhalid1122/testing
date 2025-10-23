@@ -20,14 +20,13 @@ import {
   ListItem,
   ListItemText,
   Paper,
-} from "@mui/material";
+} from "@/lib/mui-optimized";
 import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import MobileSamplePng from "../assets/images/main-editor-sample.jpg";
 import BackDecalsPng from "../assets/images/back-with-decals.png";
-import { makeStyles } from "@mui/styles";
-import Textarea from "@mui/joy/Textarea";
+import { makeStyles } from "@/lib/mui-optimized";
+import { Textarea, CheckIcon } from "@/lib/mui-optimized";
 import axios from "axios";
-import CheckIcon from "@mui/icons-material/Check";
 import { useRouter } from "next/navigation";
 import { BrowserView, MobileView } from "react-device-detect";
 import { padOrderID } from "./CheckoutSuccess";
