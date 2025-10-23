@@ -80,7 +80,12 @@ export function HamburgerButton({
   };
 
   return (
-    <button onClick={() => handleOnClick()} className="focus:outline-none">
+    <button 
+      onClick={() => handleOnClick()} 
+      className="focus:outline-none"
+      aria-label={state === "open" ? "Close menu" : "Open menu"}
+      aria-expanded={state === "open"}
+    >
       <motion.svg
         width="50"
         height="50"
