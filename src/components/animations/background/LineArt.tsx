@@ -23,24 +23,32 @@ export function AnimatedLineArt({
 }: AnimatedLineArtProps) {
   const [totalLength, setTotalLength] = useState(0);
   const pathRef = useRef<SVGPathElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (pathRef.current) {
-      setTotalLength(pathRef.current.getTotalLength());
+      // Use requestAnimationFrame to avoid forced reflow
+      requestAnimationFrame(() => {
+        const length = pathRef.current?.getTotalLength() || 0;
+        setTotalLength(length);
+      });
     }
   }, []);
+
   const { d, stroke, strokeWidth, width, height, strokeLinecap } = {
     ...defaultVariantData,
     ...svgVariants[variant],
   };
   const classes = cn("h-auto w-screen lg:max-w-[50vw]", className);
   const path = reverse ? SVGPathEditor.reverse(d as string) : d;
+  
   return (
     <svg
       className={cn(classes)}
       viewBox={`0 0 ${width} ${height}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      style={{ willChange: 'transform' }} // Optimize for animations
     >
       <motion.path
         ref={pathRef}
@@ -50,12 +58,20 @@ export function AnimatedLineArt({
         strokeDasharray={totalLength}
         strokeLinecap={strokeLinecap}
         initial={{ strokeDashoffset: totalLength }}
-        whileInView={{ strokeDashoffset: [-totalLength, 0, totalLength] }}
-        transition={{
-          duration: duration,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatType: "loop",
+        whileInView={{ 
+          strokeDashoffset: [-totalLength, 0, totalLength],
+          transition: {
+            duration: duration,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "loop",
+          }
+        }}
+        onViewportEnter={() => setIsVisible(true)}
+        onViewportLeave={() => setIsVisible(false)}
+        style={{ 
+          willChange: isVisible ? 'stroke-dashoffset' : 'auto',
+          transform: 'translateZ(0)' // Force GPU acceleration
         }}
       />
     </svg>

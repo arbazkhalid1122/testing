@@ -12,16 +12,17 @@ export default function Hero() {
           <H1 className="text-[35px] md:text-[56px] leading-none">
             Turn Your Travel Pics into Postcards – Mailed for You!
           </H1>
-          <H2 className="font-[600]">
-            No stamps. No post office. No hassle. <br />
-          </H2>
-          <H2 className="font-[500]">
+          <p className="font-[600] text-lg">
+            No stamps. No post office. No hassle.
+          </p>
+          <p className="font-[500] text-lg">
             Upload a photo, add a message & the address, and we&apos;ll do the
             rest.
-          </H2>
+          </p>
           <LinkButton
             href={process.env.NEXT_PUBLIC_APP_URL || ""}
             className="pt-[18px] pb-[16px] px-[26px] text-[1.375rem] font-medium h-[3.375rem] w-[14.5rem]"
+            aria-label="Start creating your postcard"
           >
             Create My Postcard
           </LinkButton>
@@ -30,17 +31,20 @@ export default function Hero() {
         <Image
           src={image}
           className="relative z-10 scale-115"
-          alt="HeroImage"
+          alt="Example of a personalized postcard created from travel photos"
+          width={600}
+          height={400}
           priority
           fetchPriority="high"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          quality={90}
+          quality={75}
         />
       </div>
 
       <AnimatedLineArt
         className="absolute bottom-0 -right-25 sm:-right-40 z-0 w-auto h-auto overflow-hidden"
         variant="tower"
+        aria-hidden="true"
       />
     </section>
   );
