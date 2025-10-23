@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   other: {
     'format-detection': 'telephone=no',
   },
-  // Add viewport meta for better mobile performance
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({

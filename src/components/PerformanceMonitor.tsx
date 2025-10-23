@@ -17,7 +17,8 @@ export function PerformanceMonitor() {
         
         // Log FID (First Input Delay)
         if (entry.entryType === 'first-input') {
-          console.log('FID:', entry.processingStart - entry.startTime);
+          const fidEntry = entry as PerformanceEventTiming;
+          console.log('FID:', fidEntry.processingStart - fidEntry.startTime);
         }
         
         // Log CLS (Cumulative Layout Shift)

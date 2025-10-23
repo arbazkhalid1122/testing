@@ -7,7 +7,6 @@ const leagueSpartan = League_Spartan({
   preload: true, // Preload critical font
   display: "swap", // Use font-display: swap for better performance
   fallback: ["system-ui", "arial"], // Add fallback fonts
-  adjustFontFallback: true, // Optimize font fallback
 });
 
 const quicksand = Quicksand({
@@ -16,7 +15,6 @@ const quicksand = Quicksand({
   preload: false, // Don't preload secondary font
   display: "swap", // Use font-display: swap for better performance
   fallback: ["system-ui", "arial"], // Add fallback fonts
-  adjustFontFallback: true, // Optimize font fallback
 });
 
 const premiumUltra84 = localFont({
@@ -29,7 +27,6 @@ const premiumUltra84 = localFont({
   preload: false, // Only used in specific components, not immediately
   display: "swap", // Use font-display: swap for better performance
   fallback: ["system-ui", "arial"], // Add fallback fonts
-  adjustFontFallback: true, // Optimize font fallback
 });
 
 export { leagueSpartan, quicksand, premiumUltra84 };

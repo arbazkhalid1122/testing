@@ -11,15 +11,6 @@ const nextConfig: NextConfig = {
       '@emotion/react',
       '@emotion/styled'
     ],
-    // Enable modern bundling optimizations
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production", // Remove console logs in production
