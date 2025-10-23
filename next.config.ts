@@ -7,8 +7,7 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production", // Remove console logs in production
   },
-  // Optimize font loading
-  optimizeFonts: true,
+  // Font optimization is handled automatically by Next.js 15+
   // Enable compression
   compress: true,
   // Add resource hints
